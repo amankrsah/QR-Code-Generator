@@ -10,11 +10,9 @@
 }
 
 body {
-    /* background: linear-gradient(rgb(64, 42, 255), rgb(250, 250, 250)) no-repeat; */
     background: #2c3639 no-repeat;
     background-attachment: fixed;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    /* height: 100vh; */
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,6 +22,15 @@ body {
 a {
     text-decoration: none;
     color: #a5c9ca;
+}
+
+#name {
+    margin-top: 3vh;
+    color: var(--secondary);
+    font-size: x-large;
+    font-weight: 900;
+    /* background-color: #469d86; */
+    padding: 2px;
 }
 
 .container {
@@ -41,24 +48,12 @@ a {
     border-radius: 5px;
 }
 
-.name {
-    width: 60vmin;
-    height: 8vmin;
-    padding: 2vmin;
-    text-align: center;
-    margin-top: 7vmin;
-    color: var(--secondary);
-    background-color: var(--primary);
-}
-
 #qrcode {
     display: none;
     height: 60vmin;
     width: 60vmin;
-    /* margin: auto; */
     margin: 10px;
     margin-top: 7vmin;
-    /* padding: 10px; */
     border: 5px solid white;
 }
 
@@ -72,7 +67,6 @@ a {
     outline: none;
     margin-top: 7vmin;
     margin-bottom: 7vmin;
-    /* overflow-y: visible; */
     background-color: #a5c9ca;
     transition: 0.2s;
 }
@@ -84,10 +78,8 @@ a {
 
 .btn_design {
     width: 60vmin;
-    /* height: 5vmin; */
     height: 8vmin;
     margin: auto;
-    /* margin-top: 7vmin; */
     margin-bottom: 7vmin;
     color: var(--secondary);
     background-color: var(--primary);
@@ -107,14 +99,13 @@ a {
 }
 
 .alerts {
-    /* display: none; */
     position: fixed;
     top: -55px;
     padding: 2vmin;
     width: 70vmin;
     border-radius: 5px;
     color: #e7f6f2;
-    /* animation: anialerts 0.5s linear; */
+    box-shadow: 0px 10px 44px rgb(37, 37, 37);
 }
 
 .alerts .alertmsg {
@@ -143,26 +134,38 @@ a {
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .body {
-        background-color: yellow;
-    }
+@media only screen and (max-width: 480px) {
     .container {
-        width: 100vmin;
+        width: 95vmin;
+    }
+    .container * {
+        font-size: large;
+    }
+    #qrcode {
+        display: none;
+        height: 70vmin;
+        width: 70vmin;
+    }
+    .alerts {
+        position: fixed;
+        top: -55px;
+        /* height: 10vh; */
+        font-size: larger;
+        padding: 2vmin;
+        width: 80vmin;
     }
     .btn_design {
         width: 80vmin;
-        /* height: 5vmin; */
-        height: 10vmin;
-        margin: auto;
-        /* margin-top: 7vmin; */
-        margin-bottom: 7vmin;
+        height: 15vmin;
+        font-size: larger;
     }
     #vals {
-        height: 10vmin;
+        height: 30vmin;
         width: 80vmin;
-        height: 8vmin;
+    }
+    #vals:focus {
+        height: 30vmin;
+        width: 80vmin;
+        font-size: x-large;
     }
 }
-
-0
