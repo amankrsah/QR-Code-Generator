@@ -2,18 +2,19 @@ let qrcode = document.querySelector("#qrcode")
 let qrtext = document.querySelector("#vals")
 let qrbtn = document.querySelector(".btn")
 
-
-window.addEventListener("load", event => {
-    var load = qrcode.complete;
-    alert(load);
-})
 let alert = document.querySelector(".alerts");
 let alertmsg = document.querySelector(".alertmsg");
 
 let dismissBtn = document.querySelector(".dismiss_btn");
 
 function dismiss() {
-    alert.setAttribute("style", "top:-50px;display:none;")
+    alert.classList.remove("animateAlert")
+    alert.classList.add("removealerts")
+    alert.setAttribute("style", "top:-500px")
+    setTimeout(() => {
+        alert.classList.remove("removealerts")
+
+    }, 100);
     console.log("Function Called..!")
 }
 
@@ -25,19 +26,23 @@ function alerts(p) {
         alert.classList.add("animateAlert")
 
     } else if (p == 's') {
+
         alertmsg.innerText = "QR-code Generated successfully..💯"
-        document.querySelector("#name").setAttribute("style", "display:none;")
-        document.querySelector(".dismiss_btn").setAttribute("style", "display:block;")
         alert.setAttribute("style", "background-color:rgb(0 163 86);top:5px")
-        document.querySelector(".btn").setAttribute("style", "display:none;")
-        document.querySelector("#vals").setAttribute("style", "display:none;")
-        document.querySelector(".save_btn").setAttribute("style", "display:block;")
-        document.querySelector(".more_btn").setAttribute("style", "display:block;")
+        document.querySelector(".container").classList.add("active")
         alert.classList.add("animateAlert")
+
 
     }
 }
 
+document.querySelector("#more").addEventListener("click", () => {
+    document.querySelector(".container").classList.remove("active")
+    document.querySelector("#qrcode").setAttribute("style", "display:none")
+        // alert.
+    alert.setAttribute("style", "display:none")
+    qrtext.value = "";
+})
 
 function submit() {
     let val = document.getElementById("vals").value;
@@ -51,10 +56,12 @@ function submit() {
         let data = val
         let baseURL = "https://api.qrserver.com/v1/create-qr-code/"
         let url = `${baseURL}?data=${data}&size=${size}`;
+        document.querySelector("#img_dwnld").setAttribute("href", url)
+        document.querySelector("#img_dwnld").setAttribute("download", url)
         qrcode.src = url
         alerts('s')
         console.log("Aman")
         qrcode.setAttribute("style", "display:block")
         document.getElementById("#dwnld").setAttribute("href", url)
     }
-}
+};

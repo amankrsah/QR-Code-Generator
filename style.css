@@ -1,15 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+    font-family: "Poppins", sans-serif;
+}
+
 :root {
+    /* --primary: #ffffff; */
     --primary: #395b64;
     --secondary: #e7f6f2;
-    /* 
-    #2C3333
-    #395B64
-    #A5C9CA
-    #A5C9CA
-    #E7F6F2*/
+    /* color: #2c3333;
+    color: #395b64;
+    color: #a5c9ca;
+    color: #a5c9ca;
+    color: #e7f6f2; */
 }
 
 body {
+    /* background: #ffffff no-repeat; */
     background: #2c3639 no-repeat;
     background-attachment: fixed;
     font-family: sans-serif;
@@ -25,12 +31,19 @@ a {
 }
 
 #name {
+    width: 80vmin;
     margin-top: 3vh;
-    color: var(--secondary);
+    margin-bottom: 3vh;
+    color: #ffffff;
     font-size: x-large;
     font-weight: 900;
-    /* background-color: #469d86; */
-    padding: 2px;
+    background: linear-gradient(205deg, #027a1c 0%, #5f005c 74%);
+    border-radius: 15px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
 }
 
 .container {
@@ -42,6 +55,14 @@ a {
     padding: 0%;
     margin: auto;
     border: 1px solid var(--primary);
+    border-radius: 7px;
+    background-color: rgb(255, 206, 143);
+    height: 50vmin;
+    transition: height 0.2s ease-in-out;
+}
+
+.container.active {
+    height: 110vmin;
 }
 
 .container * {
@@ -49,7 +70,6 @@ a {
 }
 
 #qrcode {
-    display: none;
     height: 60vmin;
     width: 60vmin;
     margin: 10px;
@@ -58,17 +78,21 @@ a {
 }
 
 #vals {
-    height: 10%;
     width: 60vmin;
-    height: 8vmin;
+    height: 20%;
     overflow-y: scroll;
     color: var(--primary);
     border: 2px solid var(--primary);
     outline: none;
     margin-top: 7vmin;
+    padding: 5px;
     margin-bottom: 7vmin;
     background-color: #a5c9ca;
     transition: 0.2s;
+}
+
+.container.active #vals {
+    display: none;
 }
 
 #vals:focus {
@@ -82,25 +106,52 @@ a {
     margin: auto;
     margin-bottom: 7vmin;
     color: var(--secondary);
-    background-color: var(--primary);
+    background-color: #2c3639;
     border: 0.5px solid var(--primary);
     transition: 0.2s;
 }
 
 .btn_design:hover {
-    background-color: #15404b;
+    background-color: #1f5563;
     color: white;
     cursor: pointer;
 }
 
+.container.active #qrcode {
+    display: block;
+}
+
+.container.active #generate {
+    display: none;
+}
+
+.container.active #save {
+    margin-top: 2vh;
+    display: block;
+}
+
+.container.active #more {
+    display: block;
+}
+
 #msg {
-    color: #e7f6f2;
+    background-color: rgb(255, 206, 143);
+    /* color: #e7f6f2; */
+    margin-bottom: 4vmin;
+}
+
+#msg a {
+    background-color: #e7f6f2;
+    /* color: #e7f6f2; */
+    color: #1f5563;
+    padding: 7px;
     margin-bottom: 4vmin;
 }
 
 .alerts {
+    /* display: none; */
     position: fixed;
-    top: -55px;
+    top: -1000px;
     padding: 2vmin;
     width: 70vmin;
     border-radius: 5px;
@@ -122,27 +173,50 @@ a {
 }
 
 .animateAlert {
+    display: block;
     animation: anialerts 0.3s linear;
+}
+
+.removealerts {
+    animation: removeAniAlerts 0.3s linear;
 }
 
 @keyframes anialerts {
     0% {
-        top: -50px;
+        display: block;
+        top: -200px;
     }
     100% {
         top: 5px;
     }
 }
 
+@keyframes removeAniAlerts {
+    0% {
+        /* display: block; */
+        top: 5px;
+    }
+    100% {
+        top: -100px;
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .container {
-        width: 95vmin;
+        width: 92vmin;
+        height: 60vmin;
+    }
+    .container.active {
+        height: 70vh;
     }
     .container * {
         font-size: large;
     }
+    #name {
+        width: 95vmin;
+    }
     #qrcode {
-        display: none;
         height: 70vmin;
         width: 70vmin;
     }
@@ -156,7 +230,7 @@ a {
     }
     .btn_design {
         width: 80vmin;
-        height: 15vmin;
+        height: 50%;
         font-size: larger;
     }
     #vals {

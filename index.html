@@ -18,18 +18,16 @@
     </div>
     <div id="name" style="height: 10vh">QR-Code Generator</div>
     <div class="container">
-        <!-- <img id="qrcode" src="./img.png" download="./img.png" alt="" /> -->
-        <img id="qrcode" src="" alt="" />
+        <img hidden id="qrcode" src="" alt="" />
         <input id="vals" type="text" placeholder="Enter/Paste your link here..." name="value" />
-        <button class="btn_design btn" onclick="submit()">
+        <button id="generate" class="btn_design btn" onclick="submit()">
         Generate QR-Code
       </button>
-        <a id="#dwnld" download>
-            <button style="display: none" class="btn_design save_btn" onclick=" ">
+        <a id="img_dwnld" href="" download>
+            <button hidden id="save" class="btn_design save_btn" download>
           Save
-        </button>
-        </a>
-        <button style="display: none" class="btn_design more_btn" onclick="window.location.reload(); ">
+        </button></a>
+        <button hidden id="more" class="btn_design more_btn">
         Generate more
       </button>
         <!-- <button class="btn_design more_btn " onclick=" ">Generate more</button> -->
