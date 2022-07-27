@@ -102,19 +102,23 @@ a {
 
 .btn_design {
     width: 60vmin;
-    height: 8vmin;
+    height: 8vh;
+    min-height: 8vh;
+    /* max-height: 8vh; */
     margin: auto;
     margin-bottom: 7vmin;
     color: var(--secondary);
     background-color: #2c3639;
     border: 0.5px solid var(--primary);
     transition: 0.2s;
+    box-shadow: 0px 0px 10px rgb(37, 37, 37);
 }
 
 .btn_design:hover {
     background-color: #1f5563;
     color: white;
     cursor: pointer;
+    box-shadow: 0px 0px 20px rgb(37, 37, 37);
 }
 
 .container.active #qrcode {
@@ -149,9 +153,8 @@ a {
 }
 
 .alerts {
-    /* display: none; */
     position: fixed;
-    top: -1000px;
+    top: -500px;
     padding: 2vmin;
     width: 70vmin;
     border-radius: 5px;
@@ -173,17 +176,18 @@ a {
 }
 
 .animateAlert {
-    display: block;
+    /* display: block; */
     animation: anialerts 0.3s linear;
 }
 
 .removealerts {
     animation: removeAniAlerts 0.3s linear;
+    /* display: none; */
 }
 
 @keyframes anialerts {
     0% {
-        display: block;
+        /* display: block; */
         top: -200px;
     }
     100% {
@@ -197,18 +201,17 @@ a {
         top: 5px;
     }
     100% {
-        top: -100px;
-        display: none;
+        top: -200px;
     }
 }
 
 @media only screen and (max-width: 480px) {
     .container {
         width: 92vmin;
-        height: 60vmin;
+        height: 70vmin;
     }
     .container.active {
-        height: 70vh;
+        height: 75vh;
     }
     .container * {
         font-size: large;
@@ -222,7 +225,7 @@ a {
     }
     .alerts {
         position: fixed;
-        top: -55px;
+        top: -200px;
         /* height: 10vh; */
         font-size: larger;
         padding: 2vmin;
@@ -230,7 +233,8 @@ a {
     }
     .btn_design {
         width: 80vmin;
-        height: 50%;
+        height: 18vmin;
+        /* max-height: 18vmin; */
         font-size: larger;
     }
     #vals {
@@ -238,8 +242,6 @@ a {
         width: 80vmin;
     }
     #vals:focus {
-        height: 30vmin;
-        width: 80vmin;
         font-size: x-large;
     }
 }
